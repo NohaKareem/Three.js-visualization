@@ -1,10 +1,17 @@
+import { Geometry, DoubleSide, PointsMaterial, Quaternion, Spherical, SphereGeometry, TextureLoader, AdditiveBlending, Vector3, Points } from 'https://unpkg.com/three@0.117.0/build/three.module.js';
+const Y_AXIS = new Vector3(0, 1, 0);
+// toRad https://stackoverflow.com/a/5260472/1446598
+Number.prototype.toRad = function() {
+  return this * Math.PI / 180;
+}
+
 import { createRenderer } from '../components/renderer.js';
 import { loadMesh } from '../components/gltf_loader.js';
 import { Resizer } from './Resizer.js';
 import { LoopUpdater } from './Loop.js';
 import { createScene } from '../components/scene.js';
 import { renderGlobe }  from '../components/globe.js';
-import { pSystem }  from '../components/particles.js';
+import { pSystem, getSpherePoint }  from '../components/particles.js';
 import { createCamera } from '../components/camera.js';
 import { createLights } from '../components/lights.js';
 import { createOrbitControls } from '../components/controls.js';
@@ -44,6 +51,11 @@ class World {
     loop.animate.push(controls); 
     loop.animate.push(globe); 
     const partSystem = pSystem;
+    for(let i = 0; i < 100; i++) {
+      globe.position.setFromSpherical(getSpherePoint(7));
+    }
+    // globe.quaternion.multiplyQuaternions(new Quaternion().setFromAxisAngle(Y_AXIS, Number.prototype.toRad(0.001), globe.quaternion))
+
     loop.animate.push(partSystem); 
     // loop.animate.push(pSystem);
     // scene.add(amblight, dirlight, hemilight, globe, partSystem);
