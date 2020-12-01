@@ -19,42 +19,61 @@ h1 {
   font-size: 2.5rem;
   font-family: "Playfair Display SC", serif;
   width: 100%;
-  margin-top: 2.5%;
+  margin-top: 5%;
   /* make sure that the heading is drawn on top */
   z-index: 1;
 }
 
-p {
-  font-size: 2rem;
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main p {
+  font-size: 1.7rem;
   margin: 0 5%;
+  text-align: left;
+}
+main p span.fiction {
+  margin-top: -1.5%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+main p.exploreButton {
+  text-align: center;
+  margin-top: 15%;
+}
+main p.exploreButton:hover {
+  cursor: pointer;
 }
 
-.container {
+.visContainer {
   display: flex;
   justify-content: center;
   align-content: center;
+  position: relative;
 }
-
-span.fiction {
-  margin-top: -1.5%;
-  font-size: 0.9rem;
+.visContainer .overlayRange {
+  position: absolute;
+  margin-top: 5%;
+  z-index: 3;
+}
+.visContainer .overlayRange input[type=range] {
+  margin-top: 1%;
+  width: 100%;
 }
 
 #scene-container {
   position: absolute;
-  width: 90vw;
+  width: 100vw;
   /*100*/
-  height: 90vw;
+  height: 100vw;
   /*100*/
   margin: 0 auto;
   background-color: #FDFDEC;
-  border: 2px solid #10061A;
   overflow-x: hidden;
-}
-
-input[type=range] {
-  margin-top: 1%;
-  width: 25%;
 }
 
 /*# sourceMappingURL=main.css.map */

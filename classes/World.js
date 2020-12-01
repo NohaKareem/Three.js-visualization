@@ -47,7 +47,7 @@ class World {
 
     //animation logic is in Loop object...loops through an array of objects to animate each
     //with tick() functions located in each animated object
-    loop = new LoopUpdater(camera,scene,renderer);
+    loop = new LoopUpdater(camera, scene, renderer);
     loop.animate.push(controls); 
     loop.animate.push(globe); 
     const partSystem = pSystem;
@@ -72,9 +72,9 @@ class World {
   external geometry, can't have 1 async method and the rest not...
   */
   async init() {
-    const wings = await loadMesh(models[0], true); //this could be looped over the array to load multiple models!
-    loop.animate.push(wings);
-    scene.add(wings);
+    const gltf = await loadMesh(models[0], true); //this could be looped over the array to load multiple models!
+    loop.animate.push(gltf);
+    scene.add(gltf);
   }
 
   //call start and stop functions from loop object (where the renderer is)
