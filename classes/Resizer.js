@@ -1,12 +1,10 @@
 class Resizer {
-
-constructor(container,camera,renderer) {
-camera.aspect = container.clientWidth / container.clientHeight;
-renderer.setSize(container.clientWidth, container.clientHeight);
-renderer.setPixelRatio(window.devicePixelRatio);
-camera.updateProjectionMatrix();
+    constructor(container,camera,renderer) {
+      camera.aspect = container.clientWidth / container.clientHeight;
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      camera.updateProjectionMatrix();
   }
-
 }
 
 export { Resizer };

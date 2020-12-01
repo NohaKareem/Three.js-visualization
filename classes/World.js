@@ -1,9 +1,10 @@
 import { createRenderer } from '../components/renderer.js';
 import { loadMesh } from '../components/gltf_loader.js';
 import { Resizer } from './Resizer.js';
-import { updateLoop } from './Loop.js';
+import { LoopUpdater } from './Loop.js';
 import { createScene } from '../components/scene.js';
 import { renderGlobe }  from '../components/globe.js';
+import { pSystem }  from '../components/particles.js';
 import { createCamera } from '../components/camera.js';
 import { createLights } from '../components/lights.js';
 import { createOrbitControls } from '../components/controls.js';
@@ -22,19 +23,33 @@ class World {
     camera = createCamera();
     scene = createScene('#FDFDEC');//grey
     const {amblight, dirlight ,hemilight} = createLights();
-    renderer = createRenderer(); //~~~
+    renderer = createRenderer(); 
     container.append(renderer.domElement);
     const controls = createOrbitControls(camera, renderer.domElement);
-    const cube = renderGlobe(1, 1, 1); //~
+
+    // let speed = 0.001;
+    
+    // add dat controlsfor directed light
+    var gui = new dat.GUI();
+    gui.add(dirlight, 'intensity', 0, 10); //5 //~
+    gui.add(dirlight.position, 'y', -50, 50);
+    gui.add(dirlight.position, 'z', -50, 50); //~ camera
+    // gui.add(dirlight.position, 'z', -50, 50);
+    
+    const globe = renderGlobe(4, 70, 50); 
 
     //animation logic is in Loop object...loops through an array of objects to animate each
     //with tick() functions located in each animated object
-    loop = new updateLoop(camera,scene,renderer);
-    loop.animate.push(controls); //controls need to update to stay accurate
-    //ANY object that needs to update in the scene needs to be pushed to the loop's object array
-    loop.animate.push(cube); //any mesh object pushed to the array should have a local tick() to call
+    loop = new LoopUpdater(camera,scene,renderer);
+    loop.animate.push(controls); 
+    loop.animate.push(globe); 
+    const partSystem = pSystem;
+    loop.animate.push(partSystem); 
+    // loop.animate.push(pSystem);
+    // scene.add(amblight, dirlight, hemilight, globe, partSystem);
+    // add all animatable objects to scene, using spread operator
+    scene.add(amblight, dirlight, hemilight, ...loop.animate)
 
-    scene.add(amblight,dirlight,hemilight,cube);
     const resizer = new Resizer(container, camera, renderer);
   }
 

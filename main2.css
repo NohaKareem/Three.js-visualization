@@ -2,29 +2,24 @@ body {
   /* remove margins and scroll bars */
   margin: 0;
   overflow: hidden;
+
   /* style text */
   text-align: center;
   font-size: 12px;
   font-family: Sans-Serif;
+
   /* color text */
-  color: #10061A;
+  color: #444;
   background-color: #FDFDEC;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2rem;
 }
 
 h1 {
   /* position the heading */
-  font-size: 2.5rem;
-  font-family: "Playfair Display SC", serif;
+  position: absolute;
   width: 100%;
-  margin-top: 5%;
+
   /* make sure that the heading is drawn on top */
   z-index: 1;
-}
-
-p {
-  font-size: 2rem;
 }
 
 .container {
@@ -35,21 +30,9 @@ p {
 
 #scene-container {
   position: absolute;
-  width: 100%;
-  /*100*/
-  height: 70%;
-  /*100*/
+  width: 50%;/*100*/
+  height: 50%;/*100*/
   margin: 0 auto;
+
   background-color: #FDFDEC;
 }
-
-main {
-  margin-top: 37%;
-}
-
-input[type=range] {
-  margin-top: 1%;
-  width: 25%;
-}
-
-/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,97 @@
+$paleParchment: #FDFDEC;
+$chlorophyllGreen: #04461A;
+$inkyJetChracoal: #10061A;
+$buttonRad: 40px;
+$vidHt: 500px; //~
+$rangeHt: $vidHt * .005;
+
+// @mixin insetShadow {
+//   box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
+//       inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
+// }
+
+body {
+  /* remove margins and scroll bars */
+  margin: 0;
+  overflow: hidden;
+
+  /* style text */
+  text-align: center;
+  font-size: 12px;
+  font-family: Sans-Serif;
+
+  /* color text */
+  color: $inkyJetChracoal;
+  background-color: #FDFDEC;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+}
+
+h1 {
+  /* position the heading */
+  // position: absolute;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display SC', serif;
+  width: 100%;
+  margin-top: 5%;
+  /* make sure that the heading is drawn on top */
+  z-index: 1;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#scene-container {
+  position: absolute;
+  width: 100%;/*100*/
+  height: 70%;/*100*/
+  margin: 0 auto;
+
+  background-color: $paleParchment;
+}
+
+// .conGrid {
+//   display: grid;
+//   grid-template-rows: repeat(2, minmax(0, 1fr));
+// }
+
+main {
+  margin-top: 37%;
+}
+
+input[type=range] {
+  margin-top: 1%;
+  width: 25%;
+
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+  // height: $rangeHt;
+  // outline: none;
+
+  // position: relative;
+  // z-index: 2;
+  // // background-color: $paleParchment;  
+  // background-color: rgba(255, 255, 255, 0);  
+}
+
+// // chrome range slider
+// input[type=range]::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   width: $buttonRad / 3;
+//   height: $buttonRad / 3;
+//   background-color: $paleParchment;
+//   border-radius: 50%;
+//   cursor: pointer;
+//   transition: 1s ease-out;
+// }
+
+// input[type=range]::-webkit-slider-thumb:hover {
+//   @include insetShadow;
+// }

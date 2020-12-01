@@ -2,15 +2,49 @@
 <html>
 
 <head>
-  <title>three.js</title>
-
+  <title>Harmonia Axyridis Habitat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="main.css" rel="stylesheet" type="text/css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+  <script src="lib/dat.gui.min.js"></script>
   <script type="module" src="oop.js"></script>
 </head>
 
 <body>
-  <main id="scene-container"></main>
+  <div class="conGrid">
+    <h1>Harmonia Axyridis Habitat</h1>
+    <div class="container">
+      <div id="scene-container"></div>
+    </div>
+    <main>
+      <label for="yearsRange">Explore different years</label>
+      <br>
+      <input type="range" value="1990" id="yearsRange" min="1880" max="2020" name="yearsRange" list="years">
+      <datalist id="years">
+        <option value="1880"></option>
+        <option value="1890"></option>
+        <option value="1900"></option>
+        <option value="1910"></option>
+        <option value="1920"></option>
+        <option value="1930"></option>
+        <option value="1940"></option>
+        <option value="1950"></option>
+        <option value="1960"></option>
+        <option value="1970"></option>
+        <option value="1980"></option>
+        <option value="1990"></option>
+        <option value="2000"></option>
+        <option value="2010"></option>
+        <option value="2020"></option>
+      </datalist> 
+      <p class="feedback">1990</p>
+
+    </main>
+  </div>
 </body>
 </html>
