@@ -12,8 +12,10 @@ main().catch((err) => {
     console.error(err);
 });
 
+const DAT_GUI = document.querySelector('#datGui');
+
 // greensock scrollto animation
-document.querySelector('.exploreButton').addEventListener("click", e => {
+document.querySelector('.exploreButton').addEventListener("click", _ => {
     TweenLite.to(window, 1.5, {
         scrollTo: {
             y: ".visContainer", 
@@ -22,4 +24,12 @@ document.querySelector('.exploreButton').addEventListener("click", e => {
             ease: "slow(0.7, 0.7, false)"
         }
     });
+});
+
+document.querySelector('.visContainer').addEventListener("mouseover", _ => {
+    DAT_GUI.style.visibility = 'visible';
+});
+
+document.querySelector('.visContainer').addEventListener("mouseout", _ => {
+    DAT_GUI.style.visibility = 'hidden';
 });

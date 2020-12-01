@@ -44,6 +44,10 @@ main {
     font-size: 1.7rem;
     margin: 0 5%;
     text-align: left;
+
+    a {
+      color: $inkyJetChracoal;
+    }
         
     span.fiction {
       margin-top: -1.5%;
@@ -103,7 +107,7 @@ main {
   // position: relative;
   // margin-top: 10vh;
   // z-index: 4;
-  // visibility: hidden;
+  visibility: hidden;
   ul {
     li {
       background-color: $paleParchment;

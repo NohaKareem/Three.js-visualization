@@ -36,6 +36,9 @@ main p {
   margin: 0 5%;
   text-align: left;
 }
+main p a {
+  color: #10061A;
+}
 main p span.fiction {
   margin-top: -1.5%;
   font-size: 0.9rem;
@@ -76,6 +79,9 @@ main p.exploreButton:hover {
   overflow-x: hidden;
 }
 
+#datGui {
+  visibility: hidden;
+}
 #datGui ul li {
   background-color: #FDFDEC;
   color: #10061A;
