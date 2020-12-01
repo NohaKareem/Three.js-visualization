@@ -11,8 +11,8 @@ var partGeo = new Geometry();
 var partMat= new PointsMaterial({
         color: 'rgb(16, 6, 26)', 
         // side: DoubleSide, //~
-        size: .25,
-//         map: new TextureLoader().load('assets/textures/map.jpg'), //~
+        size: .1,
+        map: new TextureLoader().load('../assets/textures/ladybug.png'), //~
 //         blending: AdditiveBlending,
 //         transparent: true, 
         // ~add depth buffer, to overlap globe
