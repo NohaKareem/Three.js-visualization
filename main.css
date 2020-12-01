@@ -76,4 +76,24 @@ main p.exploreButton:hover {
   overflow-x: hidden;
 }
 
+#datGui ul li {
+  background-color: #FDFDEC;
+  color: #10061A;
+  font-family: "Open Sans", sans-serif;
+  text-shadow: none;
+}
+#datGui ul .slider {
+  background-color: #FDFDEC;
+}
+#datGui ul .slider-fg {
+  background-color: #10061A;
+}
+#datGui ul input[type=text] {
+  font-family: "Open Sans", sans-serif;
+  color: #FDFDEC;
+}
+#datGui .close-button {
+  font-family: "Open Sans", sans-serif;
+}
+
 /*# sourceMappingURL=main.css.map */

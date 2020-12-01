@@ -38,6 +38,10 @@ class World {
     
     // add dat controlsfor directed light
     var gui = new dat.GUI();
+    
+    // set id for css edits
+    gui.domElement.id = 'datGui';
+
     gui.add(dirlight, 'intensity', 0, 10); //5 //~
     gui.add(dirlight.position, 'y', -50, 50);
     gui.add(dirlight.position, 'z', -50, 50); //~ camera
