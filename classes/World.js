@@ -23,7 +23,7 @@ let camera, renderer, scene, loop, gui;
 // let models = ['harmonia5.gltf','insect_gltf.gltf']; 
 // let models = ['harmonia_axyridis_ar.gltf','insect_gltf.gltf']; 
 // let models = ['harmonia_axyridis.glb']; 
-let models = ['harmonia_0002.gltf']; 
+let models = ['harmonia_0001.gltf']; 
 // let models = ['harmonia3.gltf']; 
 // let models = ['harmonia.gltf']; 
 // let models = ['harmonia_axyridis.gltf','insect_gltf.gltf']; 
