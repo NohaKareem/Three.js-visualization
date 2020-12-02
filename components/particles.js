@@ -5,38 +5,30 @@ const X_AXIS = new Vector3(1, 0, 0);
 const Z_AXIS = new Vector3(0, 0, 1);
 
 // var partGeo = new THREE.SphereGeometry(10, 64, 104);
-var partGeo = new Geometry();
-// var partGeo = new SphereGeometry(1, 64, 104);// detail of geom determines detail
+// var partGeo = new Geometry();
+var partGeo = new SphereGeometry(10, 10, 20, Math.PI / 6, Math.PI / 4, 0, 0.5 * Math.PI);// detail of geom determines detail
+// var partGeo = new SphereGeometry(10, 64, 104, 0, 2*Math.PI, 0, 0.5 * Math.PI);// detail of geom determines detail
 
 var partMat= new PointsMaterial({
         color: 'rgb(255, 255, 255)', 
-        // side: DoubleSide, //~
-        size: .5,
-        map: new TextureLoader().load('../assets/textures/ladybug.png'), //~
-//         blending: AdditiveBlending,
+        size: 2,
+        map: new TextureLoader().load('../assets/textures/ladybug.png'), 
         transparent: true, 
-        // ~add depth buffer, to overlap globe
         depthWrite: false
-
-            // color: 'rgb(255, 255, 255)', 
-            // size: .5,
-            // map: new TextureLoader().load('ladybug.png'), // could be a separate var too
-            // blending: AdditiveBlending,// like in Ps, how mixed when rendered on top of ea. other
-            // transparent: true, //~experimentWith 
-            // depthWrite: true 
+        // blending: AdditiveBlending
 });
 
-var pcount = 100;//200000; 
-var pdist = 10;//10;
-var yDist = 2;//10;
-var distFromCenter = 2;//10;
-for (var i = 0; i < pcount; i++) {
-    var posx = (Math.random() - 0.1) * pdist + distFromCenter;
-    var posy = (Math.random() - 0.1) * (yDist / 3) + distFromCenter;
-    var posz = (0.1) * (pdist / 4.7);
-    var particle = new Vector3(posx, posy, posz);
-    partGeo.vertices.push(particle);
-}   
+// var pcount = 10;//200000; 
+// var pdist = 10;//10;
+// var yDist = 2;//10;
+// var distFromCenter = 2;//10;
+// for (var i = 0; i < pcount; i++) {
+//     var posx = (Math.random() - 0.1) * pdist + distFromCenter;
+//     var posy = (Math.random() - 0.1) * (yDist / 3) + distFromCenter;
+//     var posz = (0.1) * (pdist / 4.7);
+//     var particle = new Vector3(posx, posy, posz);
+//     partGeo.vertices.push(particle);
+// }   
 
 var pSystem = new Points(partGeo, partMat); // pass array of materials i think
 // psystem.name = 'p_system';
@@ -54,11 +46,11 @@ let getSpherePoint = radius => {
 pSystem.tick = _ => {
 	pSystem.geometry.vertices.forEach(particle => {
         // rotate particle vetor on y axis, with globe
-        // particle.applyAxisAngle(Y_AXIS, 0.01);
+        particle.applyAxisAngle(Y_AXIS, 0.001);
     });
     
 	pSystem.geometry.verticesNeedUpdate = true; // can alter indiv. vertices in a plane, etc
 }; 
 
 
-export { pSystem, getSpherePoint };
+export { pSystem };

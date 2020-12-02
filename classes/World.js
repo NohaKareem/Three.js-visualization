@@ -13,7 +13,7 @@ import { Resizer } from './Resizer.js';
 import { LoopUpdater } from './Loop.js';
 import { createScene } from '../components/scene.js';
 import { renderGlobe }  from '../components/globe.js';
-import { pSystem, getSpherePoint }  from '../components/particles.js';
+import { pSystem }  from '../components/particles.js';
 import { createCamera } from '../components/camera.js';
 import { createLights } from '../components/lights.js';
 import { createOrbitControls } from '../components/controls.js';
@@ -67,7 +67,7 @@ class World {
     loop.animate.push(globe); 
     const partSystem = pSystem;
     // for(let i = 0; i < 100; i++) {
-      globe.position.setFromSpherical(getSpherePoint(10));
+      // globe.position.setFromSpherical(getSpherePoint(10));
     // }
     // globe.quaternion.multiplyQuaternions(new Quaternion().setFromAxisAngle(Y_AXIS, Number.prototype.toRad(0.001), globe.quaternion))
 
