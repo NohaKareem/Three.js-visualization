@@ -7,6 +7,7 @@ async function loadMesh(meshfile, animflag) {
     // model.position.set(-100,-50,-100);
     model.position.set(-15, 3,-1);
     model.rotation.x = 190;
+    // model.scale.set(100, 100, 100);
     model.scale.set(1.5, 1.5, 1.5);
 
     model.tick = () => {

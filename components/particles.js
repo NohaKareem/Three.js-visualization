@@ -9,14 +9,21 @@ var partGeo = new Geometry();
 // var partGeo = new SphereGeometry(1, 64, 104);// detail of geom determines detail
 
 var partMat= new PointsMaterial({
-        color: 'rgb(16, 6, 26)', 
+        color: 'rgb(255, 255, 255)', 
         // side: DoubleSide, //~
-        size: .1,
+        size: .5,
         map: new TextureLoader().load('../assets/textures/ladybug.png'), //~
 //         blending: AdditiveBlending,
-//         transparent: true, 
+        transparent: true, 
         // ~add depth buffer, to overlap globe
-        depthWrite: true
+        depthWrite: false
+
+            // color: 'rgb(255, 255, 255)', 
+            // size: .5,
+            // map: new TextureLoader().load('ladybug.png'), // could be a separate var too
+            // blending: AdditiveBlending,// like in Ps, how mixed when rendered on top of ea. other
+            // transparent: true, //~experimentWith 
+            // depthWrite: true 
 });
 
 var pcount = 100;//200000; 

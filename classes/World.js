@@ -24,6 +24,8 @@ let camera, renderer, scene, loop, gui;
 // let models = ['harmonia_axyridis_ar.gltf','insect_gltf.gltf']; 
 // let models = ['harmonia_axyridis.glb']; 
 let models = ['harmonia_0002.gltf']; 
+// let models = ['harmonia3.gltf']; 
+// let models = ['harmonia.gltf']; 
 // let models = ['harmonia_axyridis.gltf','insect_gltf.gltf']; 
 // let models = ['wings.glb','insect_gltf.gltf']; 
 
@@ -31,7 +33,7 @@ class World {
   constructor(container) {
     /* creates all internal THREE objects, nothing to import so no need to wait */
     camera = createCamera();
-    scene = createScene('#FDFDEC');//grey
+    scene = createScene('#FDFDEC');
     const { amblight, dirlight, hemilight } = createLights();
     renderer = createRenderer(); 
     container.append(renderer.domElement);
@@ -42,7 +44,7 @@ class World {
     
     // set id for css edits
     gui.domElement.id = 'datGui';
-    gui.add(dirlight, 'intensity', 0, 10); //5 //~
+    gui.add(dirlight, 'intensity', 0, 10);
     gui.add(dirlight.position, 'x', -50, 50).name("light X");
     gui.add(dirlight.position, 'y', -50, 50).name("light Y");
     gui.add(dirlight.position, 'z', -50, 50).name("light Z");
@@ -64,9 +66,9 @@ class World {
     loop.animate.push(controls); 
     loop.animate.push(globe); 
     const partSystem = pSystem;
-    for(let i = 0; i < 100; i++) {
+    // for(let i = 0; i < 100; i++) {
       globe.position.setFromSpherical(getSpherePoint(10));
-    }
+    // }
     // globe.quaternion.multiplyQuaternions(new Quaternion().setFromAxisAngle(Y_AXIS, Number.prototype.toRad(0.001), globe.quaternion))
 
     loop.animate.push(partSystem); 
@@ -83,9 +85,9 @@ class World {
     loop.animate.push(gltf);
     scene.add(gltf);
 
-    gui.add(gltf.rotation, 'x', 0, 360).name("ladybug X");
-    gui.add(gltf.rotation, 'y', 0, 360).name("ladybug Y");
-    gui.add(gltf.rotation, 'z', 0, 360).name("ladybug Z");
+    gui.add(gltf.rotation, 'x', -5, 5).name("ladybug X");
+    gui.add(gltf.rotation, 'y', -5, 5).name("ladybug Y");
+    gui.add(gltf.rotation, 'z', -5, 5).name("ladybug Z");
   }
 
   //call start and stop functions from loop object (where the renderer is)
