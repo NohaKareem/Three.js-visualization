@@ -6,12 +6,12 @@ const Z_AXIS = new Vector3(0, 0, 1);
 
 // var partGeo = new THREE.SphereGeometry(10, 64, 104);
 // var partGeo = new Geometry();
-var partGeo = new SphereGeometry(10.1, 10, 10, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.14 * Math.PI);// detail of geom determines detail
+var partGeo = new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI);// detail of geom determines detail
 // var partGeo = new SphereGeometry(10, 64, 104, 0, 2*Math.PI, 0, 0.5 * Math.PI);// detail of geom determines detail
 
 var partMat= new PointsMaterial({
         color: 'rgb(255, 255, 255)', 
-        size: 3,
+        size: 4,
         map: new TextureLoader().load('../assets/textures/ladybug.png'), 
         transparent: true, 
         depthWrite: false
