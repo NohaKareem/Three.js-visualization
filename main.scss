@@ -107,13 +107,14 @@ main {
   // position: relative;
   // margin-top: 10vh;
   // z-index: 4;
-  visibility: hidden;
+  // visibility: hidden;
   ul {
     li {
       background-color: $paleParchment;
       color: $inkyJetChracoal;
       font-family: 'Open Sans', sans-serif;
       text-shadow: none;
+      font-size: 1rem;
     }
     .slider {
       background-color: $paleParchment;
@@ -121,12 +122,13 @@ main {
     .slider-fg {
       background-color: $inkyJetChracoal;
     }
-    input[type=text]{
+    input[type=text] {
       font-family: 'Open Sans', sans-serif;
       color: $paleParchment;
     }
   }
   .close-button {
+    font-size: 1rem;
     font-family: 'Open Sans', sans-serif;
   }
 }

@@ -37,8 +37,10 @@ var pSystem = new Points(partGeo, partMat); // pass array of materials
 
 // spherical points https://medium.com/@joshmarinacci/quaternions-are-spooky-3a228444956d
 let getSpherePoint = radius => {
-    let angle = 2 * Math.PI * Math.random();
-    let lat = Math.acos(2 * Math.random() - 1);//~
+    let u = 1;// Math.random();
+    let v = 1;//Math.random();
+    let angle = 2 * Math.PI * u;
+    let lat = Math.acos(2 * v - 1);//~
     return new Spherical(radius, lat, angle);
 }
 

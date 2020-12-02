@@ -19,17 +19,18 @@ document.querySelector('.exploreButton').addEventListener("click", _ => {
     TweenLite.to(window, 1.5, {
         scrollTo: {
             y: ".visContainer", 
-            offsetY: 20, 
+            offsetY: 1, 
             autoKill: false, 
             ease: "slow(0.7, 0.7, false)"
         }
     });
 });
 
-document.querySelector('.visContainer').addEventListener("mouseover", _ => {
-    DAT_GUI.style.visibility = 'visible';
-});
+// show/hide dat GUI
+// document.querySelector('.visContainer').addEventListener("mouseover", _ => {
+//     DAT_GUI.style.visibility = 'visible';
+// });
 
-document.querySelector('.visContainer').addEventListener("mouseout", _ => {
-    DAT_GUI.style.visibility = 'hidden';
-});
+// document.querySelector('main').addEventListener("mouseover", _ => {
+//     DAT_GUI.style.visibility = 'hidden';
+// });

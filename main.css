@@ -79,14 +79,12 @@ main p.exploreButton:hover {
   overflow-x: hidden;
 }
 
-#datGui {
-  visibility: hidden;
-}
 #datGui ul li {
   background-color: #FDFDEC;
   color: #10061A;
   font-family: "Open Sans", sans-serif;
   text-shadow: none;
+  font-size: 1rem;
 }
 #datGui ul .slider {
   background-color: #FDFDEC;
@@ -99,6 +97,7 @@ main p.exploreButton:hover {
   color: #FDFDEC;
 }
 #datGui .close-button {
+  font-size: 1rem;
   font-family: "Open Sans", sans-serif;
 }
 
