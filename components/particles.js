@@ -67,7 +67,7 @@ var partGeos = [
     { year: "2020", geo: new SphereGeometry(10.3, 7, 5, 0.85 * Math.PI, 0.7 * Math.PI, 0.05 * Math.PI, 0.09 * Math.PI) },
     { year: "2020", geo: new SphereGeometry(10.3, 10, 10, 7/8 * Math.PI, 11/6 * Math.PI, 7/8 * Math.PI, 11/6 * Math.PI) }, //~
     { year: "2020", geo: new SphereGeometry(10.3, 10, 10, 3/2 * Math.PI, 2/3 * Math.PI, 2/3 * Math.PI, 1/3 * Math.PI) }, 
-    { year: "2020", geo: new SphereGeometry(10.3, 10, 10, Math.PI / 6, Math.PI / 4,  Math.PI / 6,  Math.PI / 4) }, 
+    { year: "2020", geo: new SphereGeometry(10.3, 10, 10, Math.PI / 6, Math.PI / 4, Math.PI / -3, Math.PI / -4) }, 
 
     // { year: "2020", geo: new SphereGeometry(10.3, 64, 30, 0, 2*Math.PI, 0, 0.25 * Math.PI) } //~
 ];
