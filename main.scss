@@ -2,13 +2,6 @@ $paleParchment: #FDFDEC;
 $chlorophyllGreen: #04461A;
 $inkyJetChracoal: #10061A;
 $buttonRad: 40px;
-$vidHt: 500px; //~
-$rangeHt: $vidHt * .005;
-
-// @mixin insetShadow {
-//   box-shadow: inset -3px -3px 10px 0.5px lighten($chlorophyllGreen, 0.5),
-//       inset 3px 3px 10px 0.5px transparentize($inkyJetChracoal, 0.9);  
-// }
 
 body {
   /* remove margins and scroll bars */
@@ -29,13 +22,10 @@ body {
 }
 
 h1 {
-  /* position the heading */
-  // position: absolute;
   font-size: 2.5rem;
   font-family: 'Playfair Display SC', serif;
   width: 100%;
   margin-top: 5%;
-  /* make sure that the heading is drawn on top */
   z-index: 1;
 }
 
@@ -81,7 +71,6 @@ main {
 
   .overlayRange {
     position: absolute;
-    // top: -500px;
     margin-top: 5%;
     z-index: 3;
 
@@ -95,8 +84,8 @@ main {
 
 #scene-container {
   position: absolute;
-  width: 100vw;/*100*/
-  height: 100vw;/*100*/
+  width: 100vw;
+  height: 100vw;
   margin: 0 auto;
 
   background-color: $paleParchment;
@@ -104,10 +93,6 @@ main {
 }
 
 #datGui {
-  // position: relative;
-  // margin-top: 10vh;
-  // z-index: 4;
-  // visibility: hidden;
   ul {
     li {
       background-color: $paleParchment;
@@ -132,33 +117,3 @@ main {
     font-family: 'Open Sans', sans-serif;
   }
 }
-
-// input[type=range] {
-//   margin-top: 1%;
-//   width: 25%;
-
-//   // -webkit-appearance: none;
-//   // -moz-appearance: none;
-//   // height: $rangeHt;
-//   // outline: none;
-
-//   // position: relative;
-//   // z-index: 2;
-//   // // background-color: $paleParchment;  
-//   // background-color: rgba(255, 255, 255, 0);  
-// }
-
-// // chrome range slider
-// input[type=range]::-webkit-slider-thumb {
-//   -webkit-appearance: none;
-//   width: $buttonRad / 3;
-//   height: $buttonRad / 3;
-//   background-color: $paleParchment;
-//   border-radius: 50%;
-//   cursor: pointer;
-//   transition: 1s ease-out;
-// }
-
-// input[type=range]::-webkit-slider-thumb:hover {
-//   @include insetShadow;
-// }

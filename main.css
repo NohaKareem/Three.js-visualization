@@ -15,12 +15,10 @@ body {
 }
 
 h1 {
-  /* position the heading */
   font-size: 2.5rem;
   font-family: "Playfair Display SC", serif;
   width: 100%;
   margin-top: 5%;
-  /* make sure that the heading is drawn on top */
   z-index: 1;
 }
 
@@ -71,9 +69,7 @@ main p.exploreButton:hover {
 #scene-container {
   position: absolute;
   width: 100vw;
-  /*100*/
   height: 100vw;
-  /*100*/
   margin: 0 auto;
   background-color: #FDFDEC;
   overflow-x: hidden;

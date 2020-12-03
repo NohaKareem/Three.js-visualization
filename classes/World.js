@@ -37,10 +37,12 @@ let updateParticleSystems = _ => {
     resetAnimationLoop();
     partSystems.forEach((partSystem, i) => {
       if (partSystem.year == input_val) {
+
         // app selected particles (by year)
         loop.animate.push(partSystem.points);
         scene.add(...loop.animate)
       } else {
+
         // remove other particles from scene
         let delPs = scene.getObjectByName(`${i}`);
         if (delPs) scene.remove(delPs);
@@ -84,6 +86,7 @@ class World {
     loop.animate.push(gltf);
     scene.add(gltf);
 
+    // dat GUI controls
     gui.add(gltf.rotation, 'x', -5, 5).name("ladybug X");
     gui.add(gltf.rotation, 'y', -5, 5).name("ladybug Y");
     gui.add(gltf.rotation, 'z', -5, 5).name("ladybug Z");
