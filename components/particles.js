@@ -10,9 +10,15 @@ var partGeos = [
     { year: "1920", geo: new SphereGeometry(10.3, 7, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
     
     { year: "1930", geo: new SphereGeometry(10.3, 7, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
-    { year: "1930", geo: new SphereGeometry(10.3, 7, 5, .01 * Math.PI, .2 * Math.PI, 0.25 * Math.PI, 0.35 * Math.PI) },
+    { year: "1930", geo: new SphereGeometry(10.3, 7, 5, .03 * Math.PI, .4 * Math.PI, 0.135 * Math.PI, 0.025 * Math.PI) },
     
-    { year: "1940", geo: new SphereGeometry(10.3, 5, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
+    
+    { year: "1940", geo: new SphereGeometry(10.3, 7, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
+    { year: "1940", geo: new SphereGeometry(10.3, 7, 5, .03 * Math.PI, .4 * Math.PI, 0.135 * Math.PI, 0.025 * Math.PI) },
+    // { year: "1940", geo: new SphereGeometry(10.3, 7, 5, 11/6 * Math.PI, 11/5 * Math.PI, .03 * Math.PI, .4 * Math.PI) },
+    { year: "1940", geo: new SphereGeometry(10.3, 7, 5, .03 * Math.PI, .4 * Math.PI, 2/3 * Math.PI, 1/3 * Math.PI) },
+    // { year: "1940", geo: new SphereGeometry(10.3, 7, 5, .01 * Math.PI, .2 * Math.PI, 0.25 * Math.PI, 0.35 * Math.PI) },
+
     { year: "1950", geo: new SphereGeometry(10.3, 5, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
     { year: "1960", geo: new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
     { year: "1970", geo: new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
