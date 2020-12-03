@@ -1,12 +1,3 @@
-import { Geometry, DoubleSide, PointsMaterial, Quaternion, Spherical, SphereGeometry, TextureLoader, AdditiveBlending, Vector3, Points } from 'https://unpkg.com/three@0.117.0/build/three.module.js';
-
-import { MeshSurfaceSampler } from 'https://cdn.jsdelivr.net/npm/three@0.115.0/examples/jsm/math/MeshSurfaceSampler.js';
-const Y_AXIS = new Vector3(0, 1, 0);
-// toRad https://stackoverflow.com/a/5260472/1446598
-Number.prototype.toRad = function() {
-  return this * Math.PI / 180;
-}
-
 import { createRenderer } from '../components/renderer.js';
 import { loadMesh } from '../components/gltf_loader.js';
 import { Resizer } from './Resizer.js';
@@ -21,9 +12,23 @@ import { createOrbitControls } from '../components/controls.js';
 //module-scoped variables
 let camera, renderer, scene, loop, gui;
 let model = 'harmonia_0001.gltf'; 
+  
+// read input year
+const range_input = document.querySelector('input[type=range]');
+const input_feedback = document.querySelector('.feedback');
+
+const partSystems = pSystems;
+
+let input_val = 0;//1990;~
+
+// update html with input value
+range_input.addEventListener('change', _ => {
+    input_val = range_input.value;  
+    input_feedback.innerHTML = input_val;
+
+});
 class World {
   constructor(container) {
-    /* creates all internal THREE objects, nothing to import so no need to wait */
     camera = createCamera();
     scene = createScene('#FDFDEC');
     const { amblight, dirlight, hemilight } = createLights();
@@ -36,6 +41,8 @@ class World {
     
     // set id for css edits
     gui.domElement.id = 'datGui';
+
+    // set up dat GUI controls
     gui.add(dirlight, 'intensity', 0, 10);
     gui.add(dirlight.position, 'x', -50, 50).name("light X");
     gui.add(dirlight.position, 'y', -50, 50).name("light Y");
@@ -44,29 +51,20 @@ class World {
     gui.add(camera.position, 'y', 0, 100).name("Camera Y"); 
     gui.add(camera.position, 'z', 0, 100).name("Camera Z"); 
 
-    // camera.lookAt(camera.position.x, camera.position.y, camera.position.z)
-    // gui.add(dirlight.position, 'z', -50, 50);
-    
     const globe = renderGlobe(10, 70, 50); 
 
-    //animation logic is in Loop object...loops through an array of objects to animate each
-    //with tick() functions located in each animated object
+    // animation loop
     loop = new LoopUpdater(camera, scene, renderer);
     loop.animate.push(controls); 
     loop.animate.push(globe); 
-    const partSystem = pSystems;
-    // for(let i = 0; i < 100; i++) {
-      // globe.position.setFromSpherical(getSpherePoint(10));
-    // }
-    // globe.quaternion.multiplyQuaternions(new Quaternion().setFromAxisAngle(Y_AXIS, Number.prototype.toRad(0.001), globe.quaternion))
 
-    loop.animate.push(partSystem[0]); 
-    console.log(partSystem)
-    loop.animate.push(partSystem[1]); 
+    partSystems.forEach(partSystem => {
+      loop.animate.push(partSystem);
+    });
+
 
     // add all animatable objects to scene, using spread operator
     scene.add(amblight, dirlight, hemilight, ...loop.animate)
-
     const resizer = new Resizer(container, camera, renderer);
   }
 

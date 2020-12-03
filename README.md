@@ -8,4 +8,4 @@ Assignment for class 5010.
 ### Alternatives for particle wrapping 
 - [Codepen with sphere points](https://codepen.io/karolpodlesny/pen/BNJmKQ)
 - [Weighted attributes on MeshSurfaceSampler](https://threejs.org/docs/#examples/en/math/MeshSurfaceSampler)
-[]
+- [toRad](https://stackoverflow.com/a/5260472/1446598)

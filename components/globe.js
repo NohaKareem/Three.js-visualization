@@ -1,14 +1,4 @@
 import { SphereBufferGeometry, BoxBufferGeometry,  TextureLoader, Mesh, MeshStandardMaterial } from 'https://unpkg.com/three@0.117.0/build/three.module.js';
-  
-// read input year
-const range_input = document.querySelector('input[type=range]');
-const input_feedback = document.querySelector('.feedback');
-let input_val = 0;//1990;
-
-range_input.addEventListener('change', _ => {
-    input_val = range_input.value;  
-    input_feedback.innerHTML = input_val;
-});
 
 function createMaterial() {
   const textureLoader = new TextureLoader();
