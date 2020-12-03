@@ -11,35 +11,64 @@ import { createOrbitControls } from '../components/controls.js';
 
 //module-scoped variables
 let camera, renderer, scene, loop, gui;
-let model = 'harmonia_0001.gltf'; 
+let model = 'harmonia.gltf'; 
   
 // read input year
 const range_input = document.querySelector('input[type=range]');
 const input_feedback = document.querySelector('.feedback');
 
 const partSystems = pSystems;
+camera = createCamera();
+scene = createScene('#FDFDEC');
+renderer = createRenderer(); 
+loop = new LoopUpdater(camera, scene, renderer);
+const globe = renderGlobe(10, 70, 50); 
+const controls = createOrbitControls(camera, renderer.domElement);
+let lastPushedPS;
+let input_val = 1990;
 
-let input_val = 0;//1990;~
+let resetAnimationLoop = _ => {
+   loop.animate = [];
+   loop.animate.push(controls); 
+   loop.animate.push(globe); 
+}
+
+let updateParticleSystems = _ => {
+    // resetAnimationLoop();
+    partSystems.forEach(partSystem => {
+      if (partSystem.year == input_val) {
+        console.log(input_val)
+        loop.animate.push(partSystem.points);
+
+        // remove irrelevant meshes
+        let indexOfLastPushedPs = loop.animate.indexOf(lastPushedPS);
+        if (indexOfLastPushedPs > -1){ 
+          loop.animate.splice(indexOfLastPushedPs, 1);
+          scene.delete(lastPushedPS);
+        }
+        // if (loop.animate.includes(lastPushedPS)) loop.animate.delete(lastPushedPS);
+        lastPushedPS = partSystem.points;
+
+        // loop.animate.filter(obj => { return obj.year != undefined ? obj.year !=  })
+      }
+  });
+  scene.add(...loop.animate)
+  console.log(scene.children)
+}
 
 // update html with input value
 range_input.addEventListener('change', _ => {
     input_val = range_input.value;  
     input_feedback.innerHTML = input_val;
-
+    updateParticleSystems();
 });
 class World {
   constructor(container) {
-    camera = createCamera();
-    scene = createScene('#FDFDEC');
     const { amblight, dirlight, hemilight } = createLights();
-    renderer = createRenderer(); 
     container.append(renderer.domElement);
-    const controls = createOrbitControls(camera, renderer.domElement);
 
-    // add dat controlsfor directed light
+    // add dat controls, and set id for css edits
     gui = new dat.GUI();
-    
-    // set id for css edits
     gui.domElement.id = 'datGui';
 
     // set up dat GUI controls
@@ -51,17 +80,9 @@ class World {
     gui.add(camera.position, 'y', 0, 100).name("Camera Y"); 
     gui.add(camera.position, 'z', 0, 100).name("Camera Z"); 
 
-    const globe = renderGlobe(10, 70, 50); 
+    resetAnimationLoop();
 
-    // animation loop
-    loop = new LoopUpdater(camera, scene, renderer);
-    loop.animate.push(controls); 
-    loop.animate.push(globe); 
-
-    partSystems.forEach(partSystem => {
-      loop.animate.push(partSystem);
-    });
-
+    updateParticleSystems();
 
     // add all animatable objects to scene, using spread operator
     scene.add(amblight, dirlight, hemilight, ...loop.animate)
@@ -69,7 +90,7 @@ class World {
   }
 
   async init() {
-    const gltf = await loadMesh(model, true); //this could be looped over the array to load multiple models!
+    const gltf = await loadMesh(model, true); 
     loop.animate.push(gltf);
     scene.add(gltf);
 
@@ -78,7 +99,7 @@ class World {
     gui.add(gltf.rotation, 'z', -5, 5).name("ladybug Z");
   }
 
-  //call start and stop functions from loop object (where the renderer is)
+  // start and stop animations
   start() { loop.start(); }
   stop() { loop.stop(); }
 }
