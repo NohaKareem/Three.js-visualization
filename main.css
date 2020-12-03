@@ -65,8 +65,11 @@ main img.ladybugPlant {
   margin-top: -10%;
 }
 .visContainer .overlayRange {
+  background-color: #FDFDEC;
+  padding: 3px 20px;
+  border-radius: 10px;
   position: absolute;
-  margin-top: 5%;
+  margin-top: 15%;
   z-index: 3;
 }
 .visContainer .overlayRange input[type=range] {
