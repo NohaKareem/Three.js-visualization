@@ -32,7 +32,7 @@ h1 {
 main {
   p {
     font-size: 1.7rem;
-    margin: 0 5%;
+    margin: 0 15%;
     text-align: left;
 
     a {
@@ -55,12 +55,22 @@ main {
     cursor: pointer;
   }
 
-
   height: 100vh;  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+
+  img.ladybugPlant {
+    // height: 40vh;
+    // bottom: 20%;
+    // right: 0%;
+    height: 50vh;
+    left: -5%;
+    bottom: 21.5%;
+    position: absolute;
+  }
 }
 
 .visContainer {

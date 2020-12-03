@@ -28,10 +28,11 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 main p {
   font-size: 1.7rem;
-  margin: 0 5%;
+  margin: 0 15%;
   text-align: left;
 }
 main p a {
@@ -48,6 +49,12 @@ main p.exploreButton {
 }
 main p.exploreButton:hover {
   cursor: pointer;
+}
+main img.ladybugPlant {
+  height: 50vh;
+  left: -5%;
+  bottom: 21.5%;
+  position: absolute;
 }
 
 .visContainer {
