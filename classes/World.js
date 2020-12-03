@@ -13,22 +13,14 @@ import { Resizer } from './Resizer.js';
 import { LoopUpdater } from './Loop.js';
 import { createScene } from '../components/scene.js';
 import { renderGlobe }  from '../components/globe.js';
-import { pSystem }  from '../components/particles.js';
+import { pSystems }  from '../components/particles.js';
 import { createCamera } from '../components/camera.js';
 import { createLights } from '../components/lights.js';
 import { createOrbitControls } from '../components/controls.js';
 
 //module-scoped variables
 let camera, renderer, scene, loop, gui;
-// let models = ['harmonia5.gltf','insect_gltf.gltf']; 
-// let models = ['harmonia_axyridis_ar.gltf','insect_gltf.gltf']; 
-// let models = ['harmonia_axyridis.glb']; 
-let models = ['harmonia_0001.gltf']; 
-// let models = ['harmonia3.gltf']; 
-// let models = ['harmonia.gltf']; 
-// let models = ['harmonia_axyridis.gltf','insect_gltf.gltf']; 
-// let models = ['wings.glb','insect_gltf.gltf']; 
-
+let model = 'harmonia_0001.gltf'; 
 class World {
   constructor(container) {
     /* creates all internal THREE objects, nothing to import so no need to wait */
@@ -56,24 +48,22 @@ class World {
     // gui.add(dirlight.position, 'z', -50, 50);
     
     const globe = renderGlobe(10, 70, 50); 
-    // const sampler = new MeshSurfaceSampler(globe)
-    // .setWeightAttribute( '' )
-    // .build();
 
     //animation logic is in Loop object...loops through an array of objects to animate each
     //with tick() functions located in each animated object
     loop = new LoopUpdater(camera, scene, renderer);
     loop.animate.push(controls); 
     loop.animate.push(globe); 
-    const partSystem = pSystem;
+    const partSystem = pSystems;
     // for(let i = 0; i < 100; i++) {
       // globe.position.setFromSpherical(getSpherePoint(10));
     // }
     // globe.quaternion.multiplyQuaternions(new Quaternion().setFromAxisAngle(Y_AXIS, Number.prototype.toRad(0.001), globe.quaternion))
 
-    loop.animate.push(partSystem); 
-    // loop.animate.push(pSystem);
-    // scene.add(amblight, dirlight, hemilight, globe, partSystem);
+    loop.animate.push(partSystem[0]); 
+    console.log(partSystem)
+    loop.animate.push(partSystem[1]); 
+
     // add all animatable objects to scene, using spread operator
     scene.add(amblight, dirlight, hemilight, ...loop.animate)
 
@@ -81,7 +71,7 @@ class World {
   }
 
   async init() {
-    const gltf = await loadMesh(models[0], true); //this could be looped over the array to load multiple models!
+    const gltf = await loadMesh(model, true); //this could be looped over the array to load multiple models!
     loop.animate.push(gltf);
     scene.add(gltf);
 
