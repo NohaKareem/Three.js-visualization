@@ -48,7 +48,7 @@ main {
 
   p.exploreButton {
     text-align: center;
-    margin-top: 15%;
+    margin-top: 8%;
   }
 
   p.exploreButton:hover {
@@ -63,9 +63,6 @@ main {
   position: relative;
 
   img.ladybugPlant {
-    // height: 40vh;
-    // bottom: 20%;
-    // right: 0%;
     height: 50vh;
     left: -5%;
     bottom: 21.5%;
@@ -78,6 +75,7 @@ main {
   justify-content: center;
   align-content: center;
   position: relative;
+  margin-top: -10%;
 
   .overlayRange {
     position: absolute;
