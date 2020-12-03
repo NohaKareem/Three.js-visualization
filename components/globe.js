@@ -8,12 +8,10 @@ function createMaterial() {
 }
 
 function renderGlobe(w=1, h=1, d=1, speed = 0.001) {
-    // const geometry = new BoxBufferGeometry(w, h, d);
     const geometry = new SphereBufferGeometry(w, h, d);
     
     const material = createMaterial();
     const globe = new Mesh(geometry, material);
-    // globe.rotation.set(-0.5, -0.1, 0.8);
 
     globe.tick = () => {
       globe.rotation.y += speed;
