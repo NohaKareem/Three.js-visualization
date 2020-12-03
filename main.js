@@ -34,3 +34,13 @@ document.querySelector('.exploreButton').addEventListener("click", _ => {
 // document.querySelector('main').addEventListener("mouseover", _ => {
 //     DAT_GUI.style.visibility = 'hidden';
 // });
+
+// gsap.to(".visContainer", 3, { 
+//     scrollTrigger: {
+//     trigger: ".visContainer", 
+//     toggleActions: "restart pause reverse pause",
+//     markers: true, 
+// }, x: 100, ease: power2.easeOut });
+
+// gsap.fromTo(DAT_GUI, 2, { opacity: 1 }, { scrollTrigger: "main", opacity: 0 , ease: power2.easeOut });
+gsap.fromTo(DAT_GUI, 3, { opacity: 0 }, { scrollTrigger: ".visContainer", opacity: 1 });
