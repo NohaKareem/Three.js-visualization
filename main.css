@@ -68,6 +68,7 @@ main img.ladybugPlant {
   background-color: #FDFDEC;
   padding: 3px 20px;
   border-radius: 10px;
+  box-shadow: 2px 0px 10px 10px rgba(16, 6, 26, 0.1);
   position: absolute;
   margin-top: 15%;
   z-index: 3;

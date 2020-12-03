@@ -81,6 +81,7 @@ main {
     background-color: $paleParchment;
     padding: 3px 20px;
     border-radius: 10px;
+    box-shadow: 2px 0px 10px 10px transparentize($inkyJetChracoal, 0.9);
     position: absolute;
     margin-top: 15%;
     z-index: 3;
