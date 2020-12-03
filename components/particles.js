@@ -4,6 +4,7 @@ const Y_AXIS = new Vector3(0, 1, 0);
 
 var partGeos = [
     { year: "1910", geo: new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },// US
+    { year: "1910", geo: new SphereGeometry(10.3, 64, 30, 0, 2*Math.PI, 0, 0.25 * Math.PI) }, //~
     { year: "1920", geo: new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },// US
     { year: "1930", geo: new SphereGeometry(10.3, 5, 5, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },// US
     { year: "2000", geo: new SphereGeometry(10.3, 3, 3, Math.PI / 6, Math.PI / 4, 0.25 * Math.PI, 0.104 * Math.PI) },
@@ -23,6 +24,9 @@ let pSystems = [];
 // add particle systems' geometries
 partGeos.forEach((geo, i) => {
     pSystems.push({ year: geo.year, points: new Points(geo.geo, partMat) });
+
+    // set reference to index
+    pSystems[i].points.name = `${i}`;
 
     // rotate particle vetor on y axis, with globe
     pSystems[i].points.tick = _ => {

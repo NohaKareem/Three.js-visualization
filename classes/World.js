@@ -25,7 +25,9 @@ loop = new LoopUpdater(camera, scene, renderer);
 const globe = renderGlobe(10, 70, 50); 
 const controls = createOrbitControls(camera, renderer.domElement);
 let lastPushedPS;
+let lastPushedPSName;
 let input_val = 1990;
+const { amblight, dirlight, hemilight } = createLights();
 
 let resetAnimationLoop = _ => {
    loop.animate = [];
@@ -34,26 +36,43 @@ let resetAnimationLoop = _ => {
 }
 
 let updateParticleSystems = _ => {
-    // resetAnimationLoop();
-    partSystems.forEach(partSystem => {
+    resetAnimationLoop();
+    partSystems.forEach((partSystem, i) => {
       if (partSystem.year == input_val) {
-        console.log(input_val)
+        // console.log(input_val)
         loop.animate.push(partSystem.points);
 
         // remove irrelevant meshes
-        let indexOfLastPushedPs = loop.animate.indexOf(lastPushedPS);
-        if (indexOfLastPushedPs > -1){ 
-          loop.animate.splice(indexOfLastPushedPs, 1);
-          scene.delete(lastPushedPS);
-        }
-        // if (loop.animate.includes(lastPushedPS)) loop.animate.delete(lastPushedPS);
-        lastPushedPS = partSystem.points;
+        // let indexOfLastPushedPs = loop.animate.indexOf(lastPushedPS);
+        // console.log('__________________')
+        // console.log(lastPushedPS)
+        // console.log(loop.animate)
+        // console.log('__________________')
+        // if (indexOfLastPushedPs > -1) { 
+        //   loop.animate.splice(indexOfLastPushedPs, 1);
+        //   let scenePs = scene.getObjectByName("lastPushedPS")
+        //   console.log('scenePs')
+        //   console.log(scenePs)
+        //   scene.remove(scenePs);
+        // } else {
+        //   console.log('deleted nth')
+        // }
+        // // if (loop.animate.includes(lastPushedPS)) loop.animate.delete(lastPushedPS);
+        // lastPushedPS = partSystem.points;
+        // lastPushedPS.name = "lastPushedPS";
 
         // loop.animate.filter(obj => { return obj.year != undefined ? obj.year !=  })
+        scene.add(...loop.animate)
+      } else {
+        console.log('about to delete')
+        let delPs = scene.getObjectByName(`${i}`);
+        console.log(delPs)
+        if (delPs) scene.remove(delPs);
       }
   });
-  scene.add(...loop.animate)
-  console.log(scene.children)
+  // console.log(scene.children)
+  // scene = createScene('#FDFDEC');
+  // scene.add(amblight, dirlight, hemilight, ...loop.animate)
 }
 
 // update html with input value
@@ -64,7 +83,6 @@ range_input.addEventListener('change', _ => {
 });
 class World {
   constructor(container) {
-    const { amblight, dirlight, hemilight } = createLights();
     container.append(renderer.domElement);
 
     // add dat controls, and set id for css edits
@@ -81,7 +99,6 @@ class World {
     gui.add(camera.position, 'z', 0, 100).name("Camera Z"); 
 
     resetAnimationLoop();
-
     updateParticleSystems();
 
     // add all animatable objects to scene, using spread operator
