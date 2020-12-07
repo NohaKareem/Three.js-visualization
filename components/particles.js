@@ -89,7 +89,7 @@ var partGeos = [
 var partMat = new PointsMaterial({
         color: 'rgb(255, 255, 255)', 
         size: 4,
-        map: new TextureLoader().load('../assets/textures/ladybug.png'), 
+        map: new TextureLoader().load('./assets/textures/ladybug.png'), 
         transparent: true, 
         depthWrite: false
 });

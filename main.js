@@ -1,4 +1,4 @@
-import { World } from '/classes/World.js';
+import { World } from './classes/World.js';
 
 async function main() {
     const container = document.querySelector('#scene-container');

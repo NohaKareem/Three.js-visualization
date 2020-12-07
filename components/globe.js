@@ -2,7 +2,7 @@ import { SphereBufferGeometry, BoxBufferGeometry,  TextureLoader, Mesh, MeshStan
 
 function createMaterial() {
   const textureLoader = new TextureLoader();
-  const texture = textureLoader.load('../assets/textures/map.jpg');
+  const texture = textureLoader.load('./assets/textures/map.jpg');
   const material = new MeshStandardMaterial({ color: 'darkgrey', map: texture, bumpMap: texture });
   return material;
 }
